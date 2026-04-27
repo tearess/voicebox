@@ -121,7 +121,7 @@ export function MainEditor() {
         <HistoryTable />
       </div>
 
-      <FloatingGenerateBox isPlayerOpen={!!audioUrl} />
+      <FloatingGenerateBox isPlayerOpen={!!audioUrl} showVoiceSelector />
 
       <Dialog open={importDialogOpen} onOpenChange={setImportDialogOpen}>
         <DialogContent>

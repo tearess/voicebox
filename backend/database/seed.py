@@ -3,6 +3,7 @@
 import json
 import logging
 import uuid
+from datetime import datetime
 
 from .. import config
 
@@ -69,5 +70,59 @@ def seed_builtin_presets(SessionLocal, EffectPreset) -> None:
             elif existing.sort_order != sort_order:
                 existing.sort_order = sort_order
         db.commit()
+    finally:
+        db.close()
+
+
+def seed_default_voice_profiles(
+    session_local,
+    voice_profile,
+    audio_channel,
+    profile_channel_mapping,
+) -> None:
+    """Create a few usable preset voice profiles on fresh databases."""
+    db = session_local()
+    try:
+        if db.query(voice_profile).first():
+            return
+
+        now = datetime.utcnow()
+        defaults = [
+            {
+                "name": "Kokoro Heart",
+                "description": "Built-in local Kokoro preset voice.",
+                "language": "en",
+                "preset_engine": "kokoro",
+                "preset_voice_id": "af_heart",
+            },
+        ]
+
+        default_channel = db.query(audio_channel).filter(audio_channel.is_default.is_(True)).first()
+
+        for item in defaults:
+            profile = voice_profile(
+                id=str(uuid.uuid4()),
+                name=item["name"],
+                description=item["description"],
+                language=item["language"],
+                voice_type="preset",
+                preset_engine=item["preset_engine"],
+                preset_voice_id=item["preset_voice_id"],
+                default_engine=item["preset_engine"],
+                created_at=now,
+                updated_at=now,
+            )
+            db.add(profile)
+            db.flush()
+            if default_channel:
+                db.add(
+                    profile_channel_mapping(
+                        profile_id=profile.id,
+                        channel_id=default_channel.id,
+                    )
+                )
+
+        db.commit()
+        logger.info("Seeded %d default preset voice profiles", len(defaults))
     finally:
         db.close()

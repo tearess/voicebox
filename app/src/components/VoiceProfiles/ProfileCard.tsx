@@ -26,10 +26,9 @@ const ENGINE_DISPLAY_NAMES: Record<string, string> = {
 
 interface ProfileCardProps {
   profile: VoiceProfileResponse;
-  disabled?: boolean;
 }
 
-export function ProfileCard({ profile, disabled }: ProfileCardProps) {
+export function ProfileCard({ profile }: ProfileCardProps) {
   const { t } = useTranslation();
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
 
@@ -43,11 +42,6 @@ export function ProfileCard({ profile, disabled }: ProfileCardProps) {
   const isSelected = selectedProfileId === profile.id;
 
   const handleSelect = () => {
-    if (disabled && isSelected) {
-      setSelectedProfileId(null);
-      setTimeout(() => setSelectedProfileId(profile.id), 0);
-      return;
-    }
     setSelectedProfileId(isSelected ? null : profile.id);
   };
 
@@ -90,8 +84,8 @@ export function ProfileCard({ profile, disabled }: ProfileCardProps) {
       <Card
         className={cn(
           'cursor-pointer transition-all flex flex-col h-[162px]',
-          disabled ? 'opacity-40 hover:opacity-60' : 'hover:shadow-md',
-          isSelected && !disabled && 'ring-2 ring-accent shadow-md',
+          'hover:shadow-md',
+          isSelected && 'ring-2 ring-accent shadow-md',
         )}
         onClick={handleSelect}
         tabIndex={0}

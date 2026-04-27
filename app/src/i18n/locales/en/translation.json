@@ -1,41 +1,41 @@
 {
   "common": {
-    "cancel": "Cancel",
-    "save": "Save",
-    "delete": "Delete",
-    "edit": "Edit",
-    "close": "Close",
-    "confirm": "Confirm",
-    "loading": "Loading…",
-    "error": "Error",
-    "unknown": "Unknown",
-    "unknownError": "Unknown error"
+    "cancel": "취소",
+    "save": "저장",
+    "delete": "삭제",
+    "edit": "수정",
+    "close": "닫기",
+    "confirm": "확인",
+    "loading": "불러오는 중...",
+    "error": "오류",
+    "unknown": "알 수 없음",
+    "unknownError": "알 수 없는 오류"
   },
   "nav": {
-    "generate": "Generate",
-    "stories": "Stories",
-    "voices": "Voices",
-    "effects": "Effects",
-    "audio": "Audio",
-    "models": "Models",
-    "settings": "Settings",
-    "updateBadge": "Update"
+    "generate": "생성",
+    "stories": "스토리",
+    "voices": "목소리",
+    "effects": "효과",
+    "audio": "오디오",
+    "models": "모델",
+    "settings": "설정",
+    "updateBadge": "업데이트"
   },
   "voicesTab": {
-    "title": "Voices",
-    "loading": "Loading voices…",
-    "searchPlaceholder": "Search voices…",
-    "newVoice": "New Voice",
-    "avatarAlt": "{{name}} avatar",
-    "selectChannels": "Select channels…",
-    "channelDefaultLabel": "{{name}} (Default)",
+    "title": "목소리",
+    "loading": "목소리를 불러오는 중...",
+    "searchPlaceholder": "목소리 검색...",
+    "newVoice": "새 목소리",
+    "avatarAlt": "{{name}} 아바타",
+    "selectChannels": "채널 선택...",
+    "channelDefaultLabel": "{{name}} (기본)",
     "columns": {
-      "name": "Name",
-      "language": "Language",
-      "generations": "Generations",
-      "samples": "Samples",
-      "effects": "Effects",
-      "channels": "Channels"
+      "name": "이름",
+      "language": "언어",
+      "generations": "생성",
+      "samples": "샘플",
+      "effects": "효과",
+      "channels": "채널"
     }
   },
   "voiceInspector": {
@@ -51,89 +51,89 @@
     }
   },
   "audioChannels": {
-    "title": "Audio Channels",
-    "newChannel": "New Channel",
-    "loading": "Loading…",
-    "confirmDelete": "Delete this channel?",
-    "noVoicesAssigned": "No voices assigned",
-    "selectDevice": "Select device",
-    "addDevice": "Add device",
-    "addVoice": "Add voice",
-    "defaultSuffix": "default",
+    "title": "오디오 채널",
+    "newChannel": "새 채널",
+    "loading": "불러오는 중...",
+    "confirmDelete": "이 채널을 삭제할까요?",
+    "noVoicesAssigned": "할당된 목소리 없음",
+    "selectDevice": "장치 선택",
+    "addDevice": "장치 추가",
+    "addVoice": "목소리 추가",
+    "defaultSuffix": "기본",
     "empty": {
-      "message": "No audio channels yet. Create your first channel to route voices to specific devices.",
-      "action": "Create Channel"
+      "message": "아직 오디오 채널이 없습니다. 특정 장치로 목소리를 보내려면 첫 채널을 만드세요.",
+      "action": "채널 만들기"
     },
     "labels": {
-      "outputDevices": "Output Devices",
-      "assignedVoices": "Assigned Voices"
+      "outputDevices": "출력 장치",
+      "assignedVoices": "할당된 목소리"
     },
     "devices": {
-      "title": "Available Devices",
-      "defaultNote": "Default channel uses system default device",
-      "toggleHint": "Click devices to add or remove them from the selected channel",
-      "selectHint": "Select a channel to assign devices",
-      "empty": "No audio devices found",
-      "requiresTauri": "Audio device selection requires Tauri"
+      "title": "사용 가능한 장치",
+      "defaultNote": "기본 채널은 시스템 기본 장치를 사용합니다.",
+      "toggleHint": "장치를 클릭해 선택한 채널에 추가하거나 제거하세요.",
+      "selectHint": "장치를 할당할 채널을 선택하세요.",
+      "empty": "오디오 장치를 찾을 수 없습니다.",
+      "requiresTauri": "오디오 장치 선택은 Tauri에서 사용할 수 있습니다."
     },
     "fields": {
-      "name": "Channel Name",
-      "namePlaceholder": "e.g., Virtual Cable, Broadcast"
+      "name": "채널 이름",
+      "namePlaceholder": "예: 가상 케이블, 방송"
     },
     "createDialog": {
-      "title": "Create Audio Channel",
-      "description": "Create a new audio channel (bus) to route voices to specific output devices.",
-      "action": "Create"
+      "title": "오디오 채널 만들기",
+      "description": "목소리를 특정 출력 장치로 보내는 새 오디오 채널을 만듭니다.",
+      "action": "만들기"
     },
     "editDialog": {
-      "title": "Edit Channel",
-      "description": "Update channel settings and voice assignments."
+      "title": "채널 수정",
+      "description": "채널 설정과 목소리 할당을 수정합니다."
     }
   },
   "profileForm": {
-    "createTitle": "Create Voice",
-    "editTitle": "Edit Voice",
-    "createDescription": "Create a new voice profile from an audio sample or a built-in voice.",
-    "editDescription": "Update your voice profile details and manage samples.",
-    "draftRestored": "Draft restored",
-    "discard": "Discard",
+    "createTitle": "목소리 만들기",
+    "editTitle": "목소리 수정",
+    "createDescription": "오디오 샘플이나 내장 목소리로 새 목소리 프로필을 만듭니다.",
+    "editDescription": "목소리 프로필 정보와 샘플을 관리합니다.",
+    "draftRestored": "임시 저장본 복원됨",
+    "discard": "버리기",
     "source": {
-      "clone": "Clone from audio",
-      "builtin": "Built-in voice"
+      "clone": "오디오에서 복제",
+      "builtin": "내장 목소리"
     },
     "builtin": {
-      "hint": "Choose a pre-built voice. These don't require an audio sample.",
-      "badge": "Built-in Voice",
-      "note": "This profile uses a built-in voice. The voice cannot be changed after creation."
+      "hint": "미리 준비된 목소리를 선택하세요. 오디오 샘플이 필요 없습니다.",
+      "badge": "내장 목소리",
+      "note": "이 프로필은 내장 목소리를 사용합니다. 만든 뒤에는 목소리를 바꿀 수 없습니다."
     },
     "sampleTabs": {
-      "upload": "Upload",
-      "record": "Record",
-      "system": "System Audio"
+      "upload": "업로드",
+      "record": "녹음",
+      "system": "시스템 오디오"
     },
     "fields": {
-      "engine": "Engine",
-      "voice": "Voice",
-      "name": "Name",
-      "namePlaceholder": "My Voice",
-      "descriptionLabel": "Description (Optional)",
-      "descriptionPlaceholder": "Describe this voice…",
-      "language": "Language",
-      "referenceText": "Reference Text",
-      "referenceTextPlaceholder": "Enter the exact text spoken in the audio…",
-      "defaultEngine": "Default Engine",
-      "noPreference": "No preference",
-      "defaultEngineHint": "Auto-selects this engine when the profile is chosen.",
-      "defaultEffects": "Default Effects",
-      "defaultEffectsHint": "Effects applied automatically to all new generations with this voice."
+      "engine": "엔진",
+      "voice": "목소리",
+      "name": "이름",
+      "namePlaceholder": "내 목소리",
+      "descriptionLabel": "설명 (선택)",
+      "descriptionPlaceholder": "이 목소리를 설명하세요...",
+      "language": "언어",
+      "referenceText": "참조 텍스트",
+      "referenceTextPlaceholder": "오디오에서 말한 정확한 문장을 입력하세요...",
+      "defaultEngine": "기본 엔진",
+      "noPreference": "선호 없음",
+      "defaultEngineHint": "이 프로필을 선택하면 이 엔진을 자동으로 사용합니다.",
+      "defaultEffects": "기본 효과",
+      "defaultEffectsHint": "이 목소리로 새 음성을 만들 때 자동 적용되는 효과입니다."
     },
     "avatar": {
       "alt": "Avatar preview"
     },
     "actions": {
-      "saving": "Saving…",
-      "saveChanges": "Save Changes",
-      "createProfile": "Create Profile"
+      "saving": "저장 중...",
+      "saveChanges": "변경사항 저장",
+      "createProfile": "프로필 만들기"
     },
     "validation": {
       "nameRequired": "Name is required",
@@ -247,69 +247,69 @@
   },
   "profiles": {
     "card": {
-      "noDescription": "No description",
-      "designed": "designed",
-      "export": "Export profile",
-      "edit": "Edit profile",
-      "delete": "Delete profile",
-      "selectLabel": "{{name}}, {{language}}. Select as voice for generation.",
-      "selectLabelSelected": "{{name}}, {{language}}. Selected as voice for generation."
+      "noDescription": "설명 없음",
+      "designed": "디자인됨",
+      "export": "프로필 내보내기",
+      "edit": "프로필 수정",
+      "delete": "프로필 삭제",
+      "selectLabel": "{{name}}, {{language}}. 생성에 사용할 목소리로 선택합니다.",
+      "selectLabelSelected": "{{name}}, {{language}}. 생성에 사용할 목소리로 선택됨."
     },
     "list": {
-      "errorLoading": "Error loading profiles: {{message}}",
-      "empty": "No voice profiles yet. Create your first profile to get started.",
-      "createVoice": "Create Voice",
-      "unsupportedNote": "Only supported voice profiles can be selected for the current model."
+      "errorLoading": "프로필을 불러오지 못했습니다: {{message}}",
+      "empty": "아직 목소리 프로필이 없습니다. 첫 프로필을 만들어 시작하세요.",
+      "createVoice": "목소리 만들기",
+      "unsupportedNote": "현재 모델에서 지원되는 목소리 프로필만 선택할 수 있습니다."
     },
     "deleteDialog": {
-      "title": "Delete Profile",
-      "body": "Are you sure you want to delete \"{{name}}\"? This action cannot be undone.",
-      "deleting": "Deleting…"
+      "title": "프로필 삭제",
+      "body": "\"{{name}}\" 프로필을 삭제할까요? 이 작업은 되돌릴 수 없습니다.",
+      "deleting": "삭제 중..."
     }
   },
   "effects": {
-    "title": "Effects",
-    "newPreset": "New Preset",
-    "noDescription": "No description",
-    "placeholder": "Select a preset or create a new one",
+    "title": "효과",
+    "newPreset": "새 프리셋",
+    "noDescription": "설명 없음",
+    "placeholder": "프리셋을 선택하거나 새로 만드세요",
     "effectCount_one": "{{count}} effect",
     "effectCount_other": "{{count}} effects",
     "sections": {
-      "builtin": "Built-in",
-      "custom": "Custom",
-      "new": "New"
+      "builtin": "내장",
+      "custom": "사용자 지정",
+      "new": "새로 만들기"
     },
     "badge": {
-      "builtin": "built-in"
+      "builtin": "내장"
     },
     "unsaved": {
-      "title": "Unsaved Preset",
-      "hint": "Configure effects in the panel on the right."
+      "title": "저장되지 않은 프리셋",
+      "hint": "오른쪽 패널에서 효과를 설정하세요."
     },
     "detail": {
-      "newTitle": "New Preset",
-      "editTitle": "Edit Preset",
-      "savePreset": "Save Preset",
-      "saveAsCustom": "Save as Custom",
-      "saving": "Saving…",
-      "deleting": "Deleting…"
+      "newTitle": "새 프리셋",
+      "editTitle": "프리셋 수정",
+      "savePreset": "프리셋 저장",
+      "saveAsCustom": "사용자 지정으로 저장",
+      "saving": "저장 중...",
+      "deleting": "삭제 중..."
     },
     "fields": {
-      "name": "Name",
-      "namePlaceholder": "My preset…",
-      "description": "Description",
-      "descriptionPlaceholder": "Describe what this preset does…"
+      "name": "이름",
+      "namePlaceholder": "내 프리셋...",
+      "description": "설명",
+      "descriptionPlaceholder": "이 프리셋이 어떤 효과인지 설명하세요..."
     },
     "preview": {
-      "label": "Preview",
-      "button": "Preview",
-      "processing": "Processing…",
-      "hint": "Preview applies effects to the clean version without saving."
+      "label": "미리보기",
+      "button": "미리보기",
+      "processing": "처리 중...",
+      "hint": "미리보기는 저장하지 않고 깨끗한 버전에 효과를 적용합니다."
     },
     "saveAs": {
-      "title": "Save as Custom Preset",
-      "description": "Create a new custom preset based on the current effects chain.",
-      "suggestedName": "{{name}} (Copy)"
+      "title": "사용자 지정 프리셋으로 저장",
+      "description": "현재 효과 체인을 바탕으로 새 사용자 지정 프리셋을 만듭니다.",
+      "suggestedName": "{{name}} (복사본)"
     },
     "toast": {
       "saved": "Preset saved",
@@ -322,16 +322,16 @@
       "nameRequired": "Name required"
     },
     "chain": {
-      "loadPreset": "Load preset…",
-      "addEffect": "Add effect…",
-      "clear": "Clear",
-      "enable": "Enable",
-      "disable": "Disable",
-      "remove": "Remove"
+      "loadPreset": "프리셋 불러오기...",
+      "addEffect": "효과 추가...",
+      "clear": "비우기",
+      "enable": "켜기",
+      "disable": "끄기",
+      "remove": "제거"
     },
     "types": {
       "chorus": {
-        "label": "Chorus / Flanger",
+        "label": "코러스 / 플랜저",
         "params": {
           "rate_hz": "LFO speed (Hz)",
           "depth": "Modulation depth",
@@ -341,7 +341,7 @@
         }
       },
       "reverb": {
-        "label": "Reverb",
+        "label": "리버브",
         "params": {
           "room_size": "Room size",
           "damping": "High frequency damping",
@@ -351,7 +351,7 @@
         }
       },
       "delay": {
-        "label": "Delay",
+        "label": "딜레이",
         "params": {
           "delay_seconds": "Delay time (seconds)",
           "feedback": "Feedback amount",
@@ -359,7 +359,7 @@
         }
       },
       "compressor": {
-        "label": "Compressor",
+        "label": "컴프레서",
         "params": {
           "threshold_db": "Threshold (dB)",
           "ratio": "Compression ratio",
@@ -368,25 +368,25 @@
         }
       },
       "gain": {
-        "label": "Gain",
+        "label": "게인",
         "params": {
           "gain_db": "Gain (dB)"
         }
       },
       "highpass": {
-        "label": "High-Pass Filter",
+        "label": "하이패스 필터",
         "params": {
           "cutoff_frequency_hz": "Cutoff frequency (Hz)"
         }
       },
       "lowpass": {
-        "label": "Low-Pass Filter",
+        "label": "로우패스 필터",
         "params": {
           "cutoff_frequency_hz": "Cutoff frequency (Hz)"
         }
       },
       "pitch_shift": {
-        "label": "Pitch Shift",
+        "label": "피치 변경",
         "params": {
           "semitones": "Semitones to shift"
         }
@@ -412,40 +412,40 @@
     }
   },
   "stories": {
-    "title": "Stories",
-    "newStory": "New Story",
-    "loading": "Loading stories…",
+    "title": "스토리",
+    "newStory": "새 스토리",
+    "loading": "스토리를 불러오는 중...",
     "empty": {
-      "title": "No stories yet",
-      "hint": "Create your first story to get started"
+      "title": "아직 스토리가 없습니다",
+      "hint": "첫 스토리를 만들어 시작하세요"
     },
     "row": {
       "itemCount_one": "{{count}} item",
       "itemCount_other": "{{count}} items",
       "ariaLabel": "Story {{name}}, {{count}} items, {{updated}}",
-      "actionsLabel": "Actions for {{name}}"
+      "actionsLabel": "{{name}} 작업"
     },
     "createDialog": {
-      "title": "Create New Story",
-      "description": "Create a new story to organize your voice generations into conversations.",
-      "action": "Create",
-      "creating": "Creating…"
+      "title": "새 스토리 만들기",
+      "description": "생성한 음성을 대화처럼 정리할 새 스토리를 만듭니다.",
+      "action": "만들기",
+      "creating": "만드는 중..."
     },
     "editDialog": {
-      "title": "Edit Story",
-      "description": "Update the story name and description.",
-      "saving": "Saving…"
+      "title": "스토리 수정",
+      "description": "스토리 이름과 설명을 수정합니다.",
+      "saving": "저장 중..."
     },
     "deleteDialog": {
-      "title": "Are you sure?",
-      "description": "This will permanently delete the story and all its items. This action cannot be undone.",
-      "deleting": "Deleting…"
+      "title": "정말 삭제할까요?",
+      "description": "스토리와 모든 항목이 영구 삭제됩니다. 이 작업은 되돌릴 수 없습니다.",
+      "deleting": "삭제 중..."
     },
     "fields": {
-      "name": "Name",
-      "namePlaceholder": "My Story",
-      "descriptionLabel": "Description (optional)",
-      "descriptionPlaceholder": "A conversation between…"
+      "name": "이름",
+      "namePlaceholder": "내 스토리",
+      "descriptionLabel": "설명 (선택)",
+      "descriptionPlaceholder": "두 사람의 대화..."
     },
     "toast": {
       "nameRequired": "Name required",
@@ -459,28 +459,28 @@
   },
   "storyContent": {
     "selectStory": {
-      "title": "Select a story",
-      "hint": "Choose a story from the list to view its content"
+      "title": "스토리 선택",
+      "hint": "내용을 보려면 목록에서 스토리를 선택하세요"
     },
-    "loading": "Loading story…",
+    "loading": "스토리를 불러오는 중...",
     "notFound": {
-      "title": "Story not found",
-      "hint": "The selected story could not be loaded"
+      "title": "스토리를 찾을 수 없음",
+      "hint": "선택한 스토리를 불러올 수 없습니다"
     },
     "generatingCount_one": "Generating {{count}} audio",
     "generatingCount_other": "Generating {{count}} audios",
-    "add": "Add",
-    "searchPlaceholder": "Search by name or transcript…",
-    "searchNoMatches": "No matching generations found",
-    "searchNoAvailable": "No available generations",
-    "exportAudio": "Export Audio",
+    "add": "추가",
+    "searchPlaceholder": "이름 또는 대본 검색...",
+    "searchNoMatches": "일치하는 생성 결과가 없습니다",
+    "searchNoAvailable": "사용 가능한 생성 결과가 없습니다",
+    "exportAudio": "오디오 내보내기",
     "empty": {
-      "title": "No items in this story",
-      "hint": "Generate speech using the box below to add items"
+      "title": "이 스토리에 항목이 없습니다",
+      "hint": "아래 입력창으로 음성을 생성해 항목을 추가하세요"
     },
     "itemActions": {
-      "playFromHere": "Play from here",
-      "removeFromStory": "Remove from Story"
+      "playFromHere": "여기부터 재생",
+      "removeFromStory": "스토리에서 제거"
     },
     "toast": {
       "removeFailed": "Failed to remove item",
@@ -491,17 +491,17 @@
   },
   "history": {
     "actions": {
-      "menu": "Actions",
-      "play": "Play",
-      "exportAudio": "Export Audio",
-      "exportPackage": "Export Package",
-      "applyEffects": "Apply Effects",
-      "regenerate": "Regenerate"
+      "menu": "작업",
+      "play": "재생",
+      "exportAudio": "오디오 내보내기",
+      "exportPackage": "패키지 내보내기",
+      "applyEffects": "효과 적용",
+      "regenerate": "다시 생성"
     },
     "deleteDialog": {
-      "title": "Delete Generation",
-      "body": "Are you sure you want to delete this generation from \"{{name}}\"? This action cannot be undone.",
-      "deleting": "Deleting…"
+      "title": "생성 결과 삭제",
+      "body": "\"{{name}}\"의 이 생성 결과를 삭제할까요? 이 작업은 되돌릴 수 없습니다.",
+      "deleting": "삭제 중..."
     },
     "clearFailedDialog": {
       "title": "Clear failed generations",
@@ -511,148 +511,148 @@
       "clearAll": "Clear all"
     },
     "importDialog": {
-      "title": "Import Generation",
-      "body": "Import the generation from \"{{name}}\". This will add it to your history.",
-      "importing": "Importing…",
-      "action": "Import"
+      "title": "생성 결과 가져오기",
+      "body": "\"{{name}}\"에서 생성 결과를 가져와 기록에 추가합니다.",
+      "importing": "가져오는 중...",
+      "action": "가져오기"
     },
     "effectsDialog": {
-      "title": "Apply Effects",
-      "body": "Configure post-processing effects to apply to this generation. A new version will be created.",
-      "sourceLabel": "Source",
-      "sourcePlaceholder": "Select source version",
-      "apply": "Apply",
-      "applying": "Applying…"
+      "title": "효과 적용",
+      "body": "이 생성 결과에 적용할 후처리 효과를 설정합니다. 새 버전이 생성됩니다.",
+      "sourceLabel": "원본",
+      "sourcePlaceholder": "원본 버전 선택",
+      "apply": "적용",
+      "applying": "적용 중..."
     }
   },
   "generation": {
     "placeholder": {
-      "storyWithEffects": "Generate speech for \"{{name}}\"… (type / for effects)",
-      "story": "Generate speech for \"{{name}}\"…",
-      "profile": "Generate speech using {{name}}…",
-      "effectsHint": "Type / for effects like [laugh], [sigh]…",
-      "selectVoice": "Select a voice profile above…"
+      "storyWithEffects": "\"{{name}}\"에 넣을 음성을 생성하세요... (/ 입력으로 효과 추가)",
+      "story": "\"{{name}}\"에 넣을 음성을 생성하세요...",
+      "profile": "{{name}} 목소리로 음성을 생성하세요...",
+      "effectsHint": "[laugh], [sigh] 같은 효과를 넣으려면 / 를 입력하세요...",
+      "selectVoice": "위에서 목소리 프로필을 선택하세요..."
     },
     "button": {
-      "generate": "Generate speech",
-      "generating": "Generating…",
-      "selectFirst": "Select a voice profile first"
+      "generate": "음성 생성",
+      "generating": "생성 중...",
+      "selectFirst": "먼저 목소리 프로필을 선택하세요"
     },
     "instruct": {
-      "show": "Show delivery instructions",
-      "hide": "Hide delivery instructions",
-      "tooltip": "Delivery instructions (tone, emotion, pace)",
-      "placeholder": "Delivery instructions — e.g. Speak slowly with warmth, Authoritative and clear…"
+      "show": "전달 방식 지시 보이기",
+      "hide": "전달 방식 지시 숨기기",
+      "tooltip": "전달 방식 지시 (톤, 감정, 속도)",
+      "placeholder": "전달 방식 지시 - 예: 따뜻하게 천천히 말하기, 또렷하고 권위 있게..."
     },
     "voiceSelector": {
-      "placeholder": "Select a voice…"
+      "placeholder": "목소리 선택..."
     },
     "effects": {
-      "none": "No effects",
-      "profileDefault": "Profile default"
+      "none": "효과 없음",
+      "profileDefault": "프로필 기본값"
     }
   },
   "main": {
-    "importVoice": "Import Voice",
-    "createVoice": "Create Voice",
+    "importVoice": "목소리 가져오기",
+    "createVoice": "목소리 만들기",
     "import": {
-      "invalidTitle": "Invalid file type",
-      "invalidDescription": "Please select a valid .voicebox.zip file",
-      "successTitle": "Profile imported",
-      "successDescription": "Voice profile imported successfully",
-      "failedTitle": "Failed to import profile",
-      "dialogTitle": "Import Profile",
-      "dialogDescription": "Import the profile from \"{{name}}\". This will create a new profile with all samples.",
-      "importing": "Importing…",
-      "action": "Import"
+      "invalidTitle": "잘못된 파일 형식",
+      "invalidDescription": "올바른 .voicebox.zip 파일을 선택하세요",
+      "successTitle": "프로필 가져오기 완료",
+      "successDescription": "목소리 프로필을 성공적으로 가져왔습니다",
+      "failedTitle": "프로필 가져오기 실패",
+      "dialogTitle": "프로필 가져오기",
+      "dialogDescription": "\"{{name}}\"에서 프로필을 가져옵니다. 모든 샘플이 포함된 새 프로필이 생성됩니다.",
+      "importing": "가져오는 중...",
+      "action": "가져오기"
     }
   },
   "settings": {
     "tabs": {
-      "general": "General",
-      "generation": "Generation",
+      "general": "일반",
+      "generation": "생성",
       "gpu": "GPU",
-      "logs": "Logs",
-      "changelog": "Changelog",
-      "about": "About"
+      "logs": "로그",
+      "changelog": "변경 내역",
+      "about": "정보"
     },
     "language": {
-      "label": "Language",
-      "description": "Choose the display language for Voicebox."
+      "label": "언어",
+      "description": "Voicebox 표시 언어를 선택합니다."
     },
     "general": {
-      "docs": { "title": "Read the Docs" },
-      "discord": { "title": "Join the Discord", "subtitle": "Get help & share voices" },
+      "docs": { "title": "문서 보기" },
+      "discord": { "title": "Discord 참여", "subtitle": "도움받기 및 목소리 공유" },
       "serverUrl": {
-        "title": "Server URL",
-        "description": "The address of your voicebox backend server.",
-        "invalidUrl": "Please enter a valid URL",
-        "updatedTitle": "Server URL updated",
-        "updatedDescription": "Connected to {{url}}"
+        "title": "서버 URL",
+        "description": "Voicebox 백엔드 서버 주소입니다.",
+        "invalidUrl": "올바른 URL을 입력하세요",
+        "updatedTitle": "서버 URL 업데이트됨",
+        "updatedDescription": "{{url}}에 연결되었습니다"
       },
       "keepServerRunning": {
-        "title": "Keep server running when app closes",
-        "description": "The server will continue running in the background after closing the app.",
-        "failedTitle": "Failed to update setting",
-        "failedDescription": "Could not sync setting to backend.",
-        "updatedTitle": "Setting updated",
-        "runningDescription": "Server will continue running when app closes",
-        "stoppedDescription": "Server will stop when app closes"
+        "title": "앱을 닫아도 서버 계속 실행",
+        "description": "앱을 닫은 뒤에도 서버가 백그라운드에서 계속 실행됩니다.",
+        "failedTitle": "설정 업데이트 실패",
+        "failedDescription": "백엔드와 설정을 동기화하지 못했습니다.",
+        "updatedTitle": "설정 업데이트됨",
+        "runningDescription": "앱을 닫아도 서버가 계속 실행됩니다",
+        "stoppedDescription": "앱을 닫으면 서버가 중지됩니다"
       },
       "networkAccess": {
-        "title": "Allow network access",
-        "description": "Makes the server accessible from other devices on your network. Restart the app after changing.",
-        "updatedTitle": "Setting updated",
-        "enabled": "Network access enabled. Restart the app to apply.",
-        "disabled": "Network access disabled. Restart the app to apply."
+        "title": "네트워크 접근 허용",
+        "description": "같은 네트워크의 다른 장치에서 서버에 접근할 수 있게 합니다. 변경 후 앱을 다시 시작하세요.",
+        "updatedTitle": "설정 업데이트됨",
+        "enabled": "네트워크 접근이 켜졌습니다. 적용하려면 앱을 다시 시작하세요.",
+        "disabled": "네트워크 접근이 꺼졌습니다. 적용하려면 앱을 다시 시작하세요."
       },
       "connection": {
-        "connecting": "Connecting",
-        "offline": "Offline",
-        "online": "Online"
+        "connecting": "연결 중",
+        "offline": "오프라인",
+        "online": "온라인"
       },
       "updates": {
-        "title": "App Updates",
+        "title": "앱 업데이트",
         "devSuffix": " (dev)",
         "devMode": {
-          "title": "Development mode",
-          "description": "Auto-updates are disabled in development mode."
+          "title": "개발 모드",
+          "description": "개발 모드에서는 자동 업데이트가 꺼져 있습니다."
         },
         "check": {
-          "title": "Check for updates",
-          "available": "Version {{version}} available",
-          "checking": "Checking…",
-          "upToDate": "You're up to date",
-          "button": "Check"
+          "title": "업데이트 확인",
+          "available": "버전 {{version}} 사용 가능",
+          "checking": "확인 중...",
+          "upToDate": "최신 버전입니다",
+          "button": "확인"
         },
-        "error": "Update error",
+        "error": "업데이트 오류",
         "download": {
-          "title": "Update to {{version}}",
-          "description": "Download and install the latest version.",
-          "button": "Download"
+          "title": "{{version}} 버전으로 업데이트",
+          "description": "최신 버전을 다운로드하고 설치합니다.",
+          "button": "다운로드"
         },
-        "downloading": "Downloading update…",
+        "downloading": "업데이트 다운로드 중...",
         "ready": {
-          "title": "Update ready to install",
-          "description": "Version {{version}} has been downloaded. Restart to complete.",
-          "button": "Restart Now"
+          "title": "업데이트 설치 준비 완료",
+          "description": "{{version}} 버전이 다운로드되었습니다. 다시 시작하면 완료됩니다.",
+          "button": "지금 다시 시작"
         }
       },
       "api": {
-        "title": "API Access",
-        "description": "Integrate Voicebox into your workflow via the REST API at <code>{{url}}</code>",
-        "viewReference": "View the full API reference",
+        "title": "로컬 서버 인터페이스",
+        "description": "외부 음성 API가 아니라 이 컴퓨터에서 실행 중인 Voicebox 로컬 서버 <code>{{url}}</code>에 연결합니다.",
+        "viewReference": "로컬 서버 문서 보기",
         "endpoints": {
-          "generate": "Generate speech",
-          "health": "Server status",
-          "profiles": "List voices",
-          "history": "Past generations"
+          "generate": "음성 생성",
+          "health": "서버 상태",
+          "profiles": "목소리 목록",
+          "history": "생성 기록"
         }
       }
     },
     "generation": {
-      "title": "Generation",
-      "description": "Controls for long text generation. These settings apply to all engines.",
+      "title": "생성",
+      "description": "긴 텍스트 생성 설정입니다. 모든 엔진에 적용됩니다.",
       "chunkLimit": {
         "title": "Auto-chunking limit",
         "description": "Long text is split into chunks at sentence boundaries. Lower values can improve quality for long outputs.",
@@ -673,9 +673,9 @@
         "description": "Automatically play audio when a generation completes."
       },
       "folder": {
-        "title": "Generations folder",
-        "description": "Where generated audio files are stored on disk.",
-        "open": "Open"
+        "title": "생성 파일 폴더",
+        "description": "생성된 오디오 파일이 저장되는 위치입니다.",
+        "open": "열기"
       }
     },
     "gpu": {
@@ -746,69 +746,69 @@
     }
   },
   "models": {
-    "title": "Models",
-    "subtitle": "Download and manage AI models for voice generation and transcription",
-    "defaultName": "Model",
-    "unknownSize": "Unknown size",
+    "title": "로컬 모델",
+    "subtitle": "Qwen, Kokoro 같은 엔진을 Hugging Face에서 내려받아 이 컴퓨터에서 실행합니다",
+    "defaultName": "로컬 모델",
+    "unknownSize": "알 수 없는 크기",
     "sections": {
-      "voiceGeneration": "Voice Generation",
-      "transcription": "Transcription"
+      "voiceGeneration": "음성 생성",
+      "transcription": "받아쓰기"
     },
     "status": {
-      "loaded": "Loaded"
+      "loaded": "로드됨"
     },
     "storage": {
-      "location": "Storage location",
-      "open": "Open",
-      "change": "Change",
-      "migrating": "Migrating…",
-      "reset": "Reset",
-      "pickerTitle": "Choose model storage folder"
+      "location": "저장 위치",
+      "open": "열기",
+      "change": "변경",
+      "migrating": "이동 중...",
+      "reset": "초기화",
+      "pickerTitle": "모델 저장 폴더 선택"
     },
     "progress": {
-      "connecting": "Connecting…",
-      "connectingHf": "Connecting to HuggingFace…"
+      "connecting": "연결 중...",
+      "connectingHf": "Hugging Face에 연결 중..."
     },
     "problems": {
-      "title": "Problems",
-      "clearAll": "Clear All",
-      "noDetails": "No error details available. Try downloading again.",
-      "startedAt": "started at {{time}}"
+      "title": "문제",
+      "clearAll": "모두 지우기",
+      "noDetails": "오류 세부 정보가 없습니다. 다시 다운로드해 보세요.",
+      "startedAt": "{{time}} 시작"
     },
     "detail": {
-      "loadingInfo": "Loading model info…",
-      "byAuthor": "by {{author}}",
-      "downloads": "Downloads",
-      "likes": "Likes",
-      "license": "License",
-      "languagesCount": "{{count}} languages supported",
-      "languagesList": "Languages: {{list}}",
-      "onDisk": "{{size}} on disk"
+      "loadingInfo": "모델 정보 불러오는 중...",
+      "byAuthor": "{{author}} 제작",
+      "downloads": "다운로드",
+      "likes": "좋아요",
+      "license": "라이선스",
+      "languagesCount": "{{count}}개 언어 지원",
+      "languagesList": "언어: {{list}}",
+      "onDisk": "디스크 사용량 {{size}}"
     },
     "actions": {
-      "download": "Download",
-      "retry": "Retry Download",
-      "unload": "Unload",
-      "unloading": "Unloading…",
-      "unloadFirst": "Unload model before deleting",
-      "deleteModel": "Delete Model"
+      "download": "다운로드",
+      "retry": "다시 다운로드",
+      "unload": "언로드",
+      "unloading": "언로드 중...",
+      "unloadFirst": "삭제 전에 모델을 언로드하세요",
+      "deleteModel": "모델 삭제"
     },
     "deleteDialog": {
-      "title": "Delete Model",
-      "body": "Are you sure you want to delete <strong>{{name}}</strong>?",
-      "sizeNote": "This will free up {{size}} of disk space. The model will need to be re-downloaded if you want to use it again.",
-      "deleting": "Deleting…"
+      "title": "모델 삭제",
+      "body": "<strong>{{name}}</strong> 모델을 삭제할까요?",
+      "sizeNote": "디스크 공간 {{size}}가 확보됩니다. 다시 사용하려면 모델을 다시 다운로드해야 합니다.",
+      "deleting": "삭제 중..."
     },
     "migrateDialog": {
-      "title": "Move models to new location?",
-      "description": "The server will shut down while models are being moved to the new folder. It will restart automatically once the migration is complete.",
-      "action": "Move Models",
-      "preparing": "Preparing…",
-      "restartingServer": "Restarting server…"
+      "title": "모델을 새 위치로 옮길까요?",
+      "description": "모델을 새 폴더로 옮기는 동안 서버가 종료됩니다. 이동이 끝나면 자동으로 다시 시작됩니다.",
+      "action": "모델 이동",
+      "preparing": "준비 중...",
+      "restartingServer": "서버 다시 시작 중..."
     },
     "migrate": {
-      "title": "Moving models",
-      "offline": "The server is offline while models are being moved."
+      "title": "모델 이동 중",
+      "offline": "모델을 이동하는 동안 서버가 오프라인 상태입니다."
     },
     "toast": {
       "downloadFailed": "Download failed",

@@ -63,13 +63,13 @@ import { SampleList } from './SampleList';
 const MAX_AUDIO_DURATION_SECONDS = 30;
 const PRESET_ONLY_ENGINES = new Set(['kokoro', 'qwen_custom_voice']);
 const DEFAULT_ENGINE_OPTIONS = [
-  { value: 'qwen', label: 'Qwen3-TTS' },
-  { value: 'qwen_custom_voice', label: 'Qwen CustomVoice' },
-  { value: 'luxtts', label: 'LuxTTS' },
-  { value: 'chatterbox', label: 'Chatterbox' },
-  { value: 'chatterbox_turbo', label: 'Chatterbox Turbo' },
-  { value: 'tada', label: 'TADA' },
-  { value: 'kokoro', label: 'Kokoro 82M' },
+  { value: 'qwen', label: 'Qwen3-TTS (local)' },
+  { value: 'qwen_custom_voice', label: 'Qwen CustomVoice (local)' },
+  { value: 'luxtts', label: 'LuxTTS (local)' },
+  { value: 'chatterbox', label: 'Chatterbox (local)' },
+  { value: 'chatterbox_turbo', label: 'Chatterbox Turbo (local)' },
+  { value: 'tada', label: 'TADA (local)' },
+  { value: 'kokoro', label: 'Kokoro 82M (local)' },
 ] as const;
 
 function makeProfileSchema(t: (key: string) => string) {
@@ -145,7 +145,7 @@ export function ProfileForm() {
   const deleteAvatar = useDeleteAvatar();
   const transcribe = useTranscription();
   const { toast } = useToast();
-  const [voiceSource, setVoiceSource] = useState<'clone' | 'builtin'>('clone');
+  const [voiceSource, setVoiceSource] = useState<'clone' | 'builtin'>('builtin');
   const [sampleMode, setSampleMode] = useState<'upload' | 'record' | 'system'>('record');
   const [audioDuration, setAudioDuration] = useState<number | null>(null);
   const [isValidatingAudio, setIsValidatingAudio] = useState(false);
@@ -327,6 +327,7 @@ export function ProfileForm() {
   // Restore form state from draft or editing profile
   useEffect(() => {
     if (editingProfile) {
+      setVoiceSource(editingProfile.voice_type === 'preset' ? 'builtin' : 'clone');
       form.reset({
         name: editingProfile.name,
         description: editingProfile.description || '',
@@ -340,6 +341,7 @@ export function ProfileForm() {
       setDefaultEngine(editingProfile.default_engine ?? '');
     } else if (profileFormDraft && open) {
       // Restore from draft when opening in create mode
+      setVoiceSource('clone');
       form.reset({
         name: profileFormDraft.name,
         description: profileFormDraft.description,
@@ -364,6 +366,7 @@ export function ProfileForm() {
       }
     } else if (!open) {
       // Only reset to defaults when modal is closed and no draft
+      setVoiceSource('builtin');
       form.reset({
         name: '',
         description: '',
@@ -373,6 +376,8 @@ export function ProfileForm() {
         avatarFile: undefined,
       });
       setSampleMode('record');
+      setSelectedPresetEngine('kokoro');
+      setSelectedPresetVoiceId('');
       setAvatarPreview(null);
     }
   }, [editingProfile, profileFormDraft, open, form]);
@@ -387,14 +392,28 @@ export function ProfileForm() {
   }, [availableDefaultEngines, defaultEngine]);
 
   useEffect(() => {
-    if (!selectedPresetVoiceId) {
+    if (!isCreating || voiceSource !== 'builtin') {
       return;
     }
 
-    if (!presetVoices.some((voice: PresetVoice) => voice.voice_id === selectedPresetVoiceId)) {
+    if (presetVoices.length === 0) {
       setSelectedPresetVoiceId('');
+      return;
     }
-  }, [presetVoices, selectedPresetVoiceId]);
+
+    const selectedVoice = presetVoices.find(
+      (voice: PresetVoice) => voice.voice_id === selectedPresetVoiceId,
+    );
+    if (selectedVoice) {
+      return;
+    }
+
+    const firstVoice = presetVoices[0];
+    setSelectedPresetVoiceId(firstVoice.voice_id);
+    if (firstVoice.language) {
+      form.setValue('language', firstVoice.language as LanguageCode);
+    }
+  }, [form, isCreating, presetVoices, selectedPresetVoiceId, voiceSource]);
   async function handleTranscribe() {
     const file = form.getValues('sampleFile');
     if (!file) {
@@ -821,7 +840,10 @@ export function ProfileForm() {
                       sampleFile: undefined,
                       referenceText: '',
                     });
+                    setVoiceSource('builtin');
                     setSampleMode('record');
+                    setSelectedPresetEngine('kokoro');
+                    setSelectedPresetVoiceId('');
                   }}
                 >
                   <X className="h-3 w-3 mr-1" />
@@ -884,8 +906,10 @@ export function ProfileForm() {
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
-                                <SelectItem value="kokoro">Kokoro 82M</SelectItem>
-                                <SelectItem value="qwen_custom_voice">Qwen CustomVoice</SelectItem>
+                                <SelectItem value="kokoro">Kokoro 82M (local)</SelectItem>
+                                <SelectItem value="qwen_custom_voice">
+                                  Qwen CustomVoice (local)
+                                </SelectItem>
                               </SelectContent>
                             </Select>
                           </FormItem>

@@ -84,9 +84,15 @@ def create_app() -> FastAPI:
 
 def _configure_cors(application: FastAPI) -> None:
     """Set up CORS middleware with local-first defaults."""
+    vite_dev_origins = [
+        f"http://localhost:{port}"
+        for port in range(5173, 5181)
+    ] + [
+        f"http://127.0.0.1:{port}"
+        for port in range(5173, 5181)
+    ]
     default_origins = [
-        "http://localhost:5173",  # Vite dev server
-        "http://127.0.0.1:5173",
+        *vite_dev_origins,  # Vite dev server ports, including fallback ports.
         "http://localhost:17493",
         "http://127.0.0.1:17493",
         "tauri://localhost",  # Tauri webview (macOS)

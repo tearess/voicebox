@@ -17,26 +17,34 @@ import type { GenerationFormValues } from '@/lib/hooks/useGenerationForm';
  * Adding a new engine means adding one entry here.
  */
 const ENGINE_OPTIONS = [
-  { value: 'qwen:1.7B', label: 'Qwen3-TTS 1.7B', engine: 'qwen' },
-  { value: 'qwen:0.6B', label: 'Qwen3-TTS 0.6B', engine: 'qwen' },
-  { value: 'qwen_custom_voice:1.7B', label: 'Qwen CustomVoice 1.7B', engine: 'qwen_custom_voice' },
-  { value: 'qwen_custom_voice:0.6B', label: 'Qwen CustomVoice 0.6B', engine: 'qwen_custom_voice' },
-  { value: 'luxtts', label: 'LuxTTS', engine: 'luxtts' },
-  { value: 'chatterbox', label: 'Chatterbox', engine: 'chatterbox' },
-  { value: 'chatterbox_turbo', label: 'Chatterbox Turbo', engine: 'chatterbox_turbo' },
-  { value: 'tada:1B', label: 'TADA 1B', engine: 'tada' },
-  { value: 'tada:3B', label: 'TADA 3B Multilingual', engine: 'tada' },
-  { value: 'kokoro', label: 'Kokoro 82M', engine: 'kokoro' },
+  { value: 'kokoro', label: 'Kokoro 82M (local)', engine: 'kokoro' },
+  { value: 'qwen:1.7B', label: 'Qwen3-TTS 1.7B (local)', engine: 'qwen' },
+  { value: 'qwen:0.6B', label: 'Qwen3-TTS 0.6B (local)', engine: 'qwen' },
+  {
+    value: 'qwen_custom_voice:1.7B',
+    label: 'Qwen CustomVoice 1.7B (local)',
+    engine: 'qwen_custom_voice',
+  },
+  {
+    value: 'qwen_custom_voice:0.6B',
+    label: 'Qwen CustomVoice 0.6B (local)',
+    engine: 'qwen_custom_voice',
+  },
+  { value: 'luxtts', label: 'LuxTTS (local)', engine: 'luxtts' },
+  { value: 'chatterbox', label: 'Chatterbox (local)', engine: 'chatterbox' },
+  { value: 'chatterbox_turbo', label: 'Chatterbox Turbo (local)', engine: 'chatterbox_turbo' },
+  { value: 'tada:1B', label: 'TADA 1B (local)', engine: 'tada' },
+  { value: 'tada:3B', label: 'TADA 3B Multilingual (local)', engine: 'tada' },
 ] as const;
 
 const ENGINE_DESCRIPTIONS: Record<string, string> = {
-  qwen: 'Multi-language, two sizes',
-  qwen_custom_voice: '9 preset voices, instruct control',
-  luxtts: 'Fast, English-focused',
-  chatterbox: '23 languages, incl. Hebrew',
-  chatterbox_turbo: 'English, [laugh] [cough] tags',
-  tada: 'HumeAI, 700s+ coherent audio',
-  kokoro: '82M params, CPU realtime, 8 langs',
+  qwen: 'Local multilingual cloning engine',
+  qwen_custom_voice: 'Local preset voices with instruct control',
+  luxtts: 'Local English-focused cloning engine',
+  chatterbox: 'Local multilingual cloning engine',
+  chatterbox_turbo: 'Local English engine with [laugh] [cough] tags',
+  tada: 'Local long-form voice engine',
+  kokoro: 'Local lightweight preset-voice engine',
 };
 
 /** Engines that only support English and should force language to 'en' on select. */
@@ -114,7 +122,7 @@ interface EngineModelSelectorProps {
 }
 
 export function EngineModelSelector({ form, compact, selectedProfile }: EngineModelSelectorProps) {
-  const engine = form.watch('engine') || 'qwen';
+  const engine = form.watch('engine') || 'kokoro';
   const modelSize = form.watch('modelSize');
   const selectValue = getSelectValue(engine, modelSize);
   const availableOptions = getAvailableOptions(selectedProfile);

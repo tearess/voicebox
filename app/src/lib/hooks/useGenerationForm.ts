@@ -64,7 +64,7 @@ export function useGenerationForm(options: UseGenerationFormOptions = {}) {
       seed: undefined,
       modelSize: '1.7B',
       instruct: '',
-      engine: (selectedEngine as GenerationFormValues['engine']) || 'qwen',
+      engine: (selectedEngine as GenerationFormValues['engine']) || 'kokoro',
       ...options.defaultValues,
     },
   });
@@ -83,7 +83,7 @@ export function useGenerationForm(options: UseGenerationFormOptions = {}) {
     }
 
     try {
-      const engine = data.engine || 'qwen';
+      const engine = data.engine || 'kokoro';
       const modelName =
         engine === 'luxtts'
           ? 'luxtts'

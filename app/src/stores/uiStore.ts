@@ -63,7 +63,7 @@ export const useUIStore = create<UIStore>((set) => ({
   selectedProfileId: null,
   setSelectedProfileId: (id) => set({ selectedProfileId: id }),
 
-  selectedEngine: 'qwen',
+  selectedEngine: 'kokoro',
   setSelectedEngine: (engine) => set({ selectedEngine: engine }),
 
   selectedVoiceId: null,

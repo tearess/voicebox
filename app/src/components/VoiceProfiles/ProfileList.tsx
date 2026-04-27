@@ -1,4 +1,4 @@
-import { Info, Mic, Sparkles } from 'lucide-react';
+import { Mic, Sparkles } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
@@ -68,8 +68,6 @@ export function ProfileList() {
     (a, b) => (isSupported(a) ? 0 : 1) - (isSupported(b) ? 0 : 1),
   );
 
-  const hasUnsupported = sortedProfiles.some((p) => !isSupported(p));
-
   return (
     <div className="flex flex-col">
       <div className="shrink-0">
@@ -95,15 +93,9 @@ export function ProfileList() {
                   else cardRefs.current.delete(profile.id);
                 }}
               >
-                <ProfileCard profile={profile} disabled={!isSupported(profile)} />
+                <ProfileCard profile={profile} />
               </div>
             ))}
-            {hasUnsupported && (
-              <div className="col-span-full flex items-center gap-2 text-xs text-muted-foreground py-2">
-                <Info className="h-3.5 w-3.5 shrink-0" />
-                <span>{t('profiles.list.unsupportedNote')}</span>
-              </div>
-            )}
           </div>
         )}
       </div>

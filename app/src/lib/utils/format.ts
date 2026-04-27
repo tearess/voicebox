@@ -41,15 +41,18 @@ export function formatDate(date: string | Date): string {
 }
 
 const ENGINE_DISPLAY_NAMES: Record<string, string> = {
-  qwen: 'Qwen',
+  qwen: 'Qwen3-TTS',
+  qwen_custom_voice: 'Qwen CustomVoice',
   luxtts: 'LuxTTS',
   chatterbox: 'Chatterbox',
   chatterbox_turbo: 'Chatterbox Turbo',
+  tada: 'TADA',
+  kokoro: 'Kokoro',
 };
 
 export function formatEngineName(engine?: string, modelSize?: string): string {
-  const name = ENGINE_DISPLAY_NAMES[engine ?? 'qwen'] ?? engine ?? 'Qwen';
-  if (engine === 'qwen' && modelSize) {
+  const name = ENGINE_DISPLAY_NAMES[engine ?? 'qwen'] ?? engine ?? 'Qwen3-TTS';
+  if ((engine === 'qwen' || engine === 'qwen_custom_voice' || engine === 'tada') && modelSize) {
     return `${name} ${modelSize}`;
   }
   return name;

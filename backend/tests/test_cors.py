@@ -29,13 +29,20 @@ def _build_app(env_origins: str = "") -> FastAPI:
     """
     app = FastAPI()
 
+    _vite_dev_origins = [
+        f"http://localhost:{port}"
+        for port in range(5173, 5181)
+    ] + [
+        f"http://127.0.0.1:{port}"
+        for port in range(5173, 5181)
+    ]
     _default_origins = [
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
+        *_vite_dev_origins,
         "http://localhost:17493",
         "http://127.0.0.1:17493",
         "tauri://localhost",
         "https://tauri.localhost",
+        "http://tauri.localhost",
     ]
     _cors_origins = _default_origins + [o.strip() for o in env_origins.split(",") if o.strip()]
 
@@ -88,10 +95,13 @@ class TestCORSDefaultOrigins:
     @pytest.mark.parametrize("origin", [
         "http://localhost:5173",
         "http://127.0.0.1:5173",
+        "http://localhost:5175",
+        "http://127.0.0.1:5175",
         "http://localhost:17493",
         "http://127.0.0.1:17493",
         "tauri://localhost",
         "https://tauri.localhost",
+        "http://tauri.localhost",
     ])
     def test_allowed_origins(self, client, origin):
         headers = _get_with_origin(client, origin)

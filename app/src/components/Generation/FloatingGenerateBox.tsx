@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { apiClient } from '@/lib/api/client';
+import type { VoiceProfileResponse } from '@/lib/api/types';
 import { getLanguageOptionsForEngine, type LanguageCode } from '@/lib/constants/languages';
 import { useGenerationForm } from '@/lib/hooks/useGenerationForm';
 import { useProfile, useProfiles } from '@/lib/hooks/useProfiles';
@@ -23,12 +24,26 @@ import { cn } from '@/lib/utils/cn';
 import { useGenerationStore } from '@/stores/generationStore';
 import { useStoryStore } from '@/stores/storyStore';
 import { useUIStore } from '@/stores/uiStore';
-import { EngineModelSelector } from './EngineModelSelector';
+import { applyEngineSelection, EngineModelSelector } from './EngineModelSelector';
 import { ParalinguisticInput } from './ParalinguisticInput';
 
 interface FloatingGenerateBoxProps {
   isPlayerOpen?: boolean;
   showVoiceSelector?: boolean;
+}
+
+function getEngineSelectValue(engine: string): string {
+  if (engine === 'qwen') return 'qwen:1.7B';
+  if (engine === 'qwen_custom_voice') return 'qwen_custom_voice:1.7B';
+  if (engine === 'tada') return 'tada:1B';
+  return engine;
+}
+
+function getDefaultProfileId(profiles: VoiceProfileResponse[]) {
+  return (
+    profiles.find((profile) => profile.voice_type === 'preset' && profile.preset_engine === 'kokoro')
+      ?.id ?? profiles[0]?.id
+  );
 }
 
 export function FloatingGenerateBox({
@@ -112,10 +127,10 @@ export function FloatingGenerateBox({
     };
   }, [isExpanded]);
 
-  // Set first voice as default if none selected
+  // Pick a lightweight local preset by default so a fresh install can generate immediately.
   useEffect(() => {
     if (!selectedProfileId && profiles && profiles.length > 0) {
-      setSelectedProfileId(profiles[0].id);
+      setSelectedProfileId(getDefaultProfileId(profiles));
     }
   }, [selectedProfileId, profiles, setSelectedProfileId]);
 
@@ -128,14 +143,6 @@ export function FloatingGenerateBox({
   }, [watchedEngine, setSelectedEngine]);
 
   // Sync generation form language, engine, and effects with selected profile
-  type EngineValue =
-    | 'qwen'
-    | 'luxtts'
-    | 'chatterbox'
-    | 'chatterbox_turbo'
-    | 'tada'
-    | 'kokoro'
-    | 'qwen_custom_voice';
   useEffect(() => {
     if (selectedProfile?.language) {
       form.setValue('language', selectedProfile.language as LanguageCode);
@@ -143,13 +150,13 @@ export function FloatingGenerateBox({
     // Auto-switch engine to match the profile
     const engine = selectedProfile?.default_engine ?? selectedProfile?.preset_engine;
     if (engine) {
-      form.setValue('engine', engine as EngineValue);
+      applyEngineSelection(form, getEngineSelectValue(engine));
     } else if (selectedProfile && selectedProfile.voice_type !== 'preset') {
       // Cloned/designed profile with no default — ensure a compatible (non-preset) engine
       const currentEngine = form.getValues('engine');
       const presetEngines = new Set(['kokoro', 'qwen_custom_voice']);
       if (currentEngine && presetEngines.has(currentEngine)) {
-        form.setValue('engine', 'qwen');
+        applyEngineSelection(form, 'qwen:1.7B');
       }
     }
     // Pre-fill effects from profile defaults
@@ -239,7 +246,9 @@ export function FloatingGenerateBox({
         isStoriesRoute
           ? // Position aligned with story list: after sidebar + padding, width 360px
             'left-[calc(5rem+2rem)] w-[360px]'
-          : 'left-[calc(5rem+2rem)] right-8 lg:right-auto lg:w-[calc((100%-5rem-4rem)/2-1rem)]',
+          : showVoiceSelector
+            ? 'left-[calc(5rem+2rem)] right-8'
+            : 'left-[calc(5rem+2rem)] right-8 lg:right-auto lg:w-[calc((100%-5rem-4rem)/2-1rem)]',
       )}
       style={{
         // On stories route: offset by track editor height when visible
@@ -468,7 +477,7 @@ export function FloatingGenerateBox({
                     name="language"
                     render={({ field }) => {
                       const engineLangs = getLanguageOptionsForEngine(
-                        form.watch('engine') || 'qwen',
+                        form.watch('engine') || 'kokoro',
                       );
                       return (
                         <FormItem className="flex-1 space-y-0">
@@ -493,7 +502,7 @@ export function FloatingGenerateBox({
                   />
 
                   <FormItem className="flex-1 space-y-0">
-                    <EngineModelSelector form={form} compact />
+                    <EngineModelSelector form={form} compact selectedProfile={selectedProfile} />
                   </FormItem>
 
                   <FormItem className="flex-1 space-y-0">

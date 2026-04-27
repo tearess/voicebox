@@ -144,10 +144,10 @@ export function GenerationForm() {
 
             <div className="grid gap-4 md:grid-cols-3">
               <FormItem>
-                <FormLabel>Model</FormLabel>
+                <FormLabel>Local Engine</FormLabel>
                 <EngineModelSelector form={form} selectedProfile={selectedProfile} />
                 <FormDescription>
-                  {getEngineDescription(form.watch('engine') || 'qwen')}
+                  {getEngineDescription(form.watch('engine') || 'kokoro')}
                 </FormDescription>
               </FormItem>
 
@@ -155,7 +155,7 @@ export function GenerationForm() {
                 control={form.control}
                 name="language"
                 render={({ field }) => {
-                  const engineLangs = getLanguageOptionsForEngine(form.watch('engine') || 'qwen');
+                  const engineLangs = getLanguageOptionsForEngine(form.watch('engine') || 'kokoro');
                   return (
                     <FormItem>
                       <FormLabel>Language</FormLabel>
